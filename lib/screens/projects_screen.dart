@@ -9,7 +9,7 @@ class ProjectsScreen extends StatelessWidget {
 
   final List<Project> projects = const [
     Project(
-      name: 'Lupark - Smart Parking',
+      name: 'luvpark - Smart Parking',
       description:
           'A mobile application for smart parking solutions that helps users find and reserve parking spots efficiently.',
       technologies: ['Flutter', 'Firebase', 'Dart'],
@@ -19,7 +19,7 @@ class ProjectsScreen extends StatelessWidget {
     Project(
       name: 'Luvpark for Client',
       description:
-          'Client-specific version of the Lupark application with customized features and branding.',
+          'Client-specific version of the luvpark application with customized features and branding.',
       technologies: ['Flutter', 'Firebase', 'Dart'],
       role: 'Mobile Developer',
       isCurrent: true,

@@ -30226,7 +30226,7 @@ if(f.b){q=t.f
 e=q.a(q.a(B.bR.fw(a1)).i(0,"data"))
 d=A.cJ(e.i(0,"message"))
 if(d!=null&&d.length!==0){c=A.Kd(e,"assertiveness")
-f.a.Qo(d,B.Kb[c==null?0:c])}}b.eH(a2,B.bR.bT(!0))
+f.a.Qo(d,B.Ka[c==null?0:c])}}b.eH(a2,B.bR.bT(!0))
 return
 case"flutter/navigation":q=t.e8
 if(q.a(b.gcG().b.i(0,0))!=null)q.a(b.gcG().b.i(0,0)).FB(a1).bf(new A.a13(b,a2),t.P)
@@ -33756,7 +33756,7 @@ m=A.fX(s.i(0,"fontWeightIndex"))
 l=m!=null?A.aOh(m):"normal"
 r=A.ase(s.i(0,"fontSize"))
 if(r==null)r=null
-p=new A.ae1(new A.a0D(r,l,A.cJ(s.i(0,"fontFamily")),B.K8[o],B.jR[n]))
+p=new A.ae1(new A.a0D(r,l,A.cJ(s.i(0,"fontFamily")),B.K7[o],B.jR[n]))
 break
 case"TextInput.clearClient":p=B.Ci
 break
@@ -65664,7 +65664,7 @@ q.cb$.C(0,s.ga90())
 s.e=q}return q},
 gMr(){var s=this.f
 if(s===$){s!==$&&A.a4()
-s=this.f=new A.ahZ(1,B.K6,B.c8)}return s},
+s=this.f=new A.ahZ(1,B.K5,B.c8)}return s},
 gfX(){var s=this.z
 s=s==null?null:$.bW().d===s
 return s===!0},
@@ -81283,7 +81283,7 @@ return A.O($async$$0,r)},
 $S:16}
 A.Je.prototype={
 N(a){var s=null,r="Bata Conference Room, GC&C Bacolod City",q=t.p,p=A.b([A.aS("Professional Experience",s,s,s,A.aZ(B.W,28,s,B.H),s,s),B.an],q)
-B.b.F(p,new A.X(B.K0,new A.a1m(),t.cL))
+B.b.F(p,new A.X(B.K_,new A.a1m(),t.cL))
 p.push(A.jf(new A.bK(B.aw,A.cK(A.b([A.aS("Trainings & Seminars",s,s,s,A.aZ(B.W,20,s,B.H),s,s),B.b4,this.AW("Laravel PHP Framework V12 Training","Nexova IT Solutions","May 14-17, 2025",r),B.ek,this.AW("Data-Driven Governance Rollout Training","Engr. Elmer D. Prudente","March 27-31, 2023","Zoom Conference"),B.ek,this.AW("Work Attitude and Values Enhancement (WAVE) Training","GC&C Group of Companies","September 19, 2024",r)],q),B.Z,B.v,B.y),s),4,s))
 return A.Az(B.dc,A.B5(A.cK(p,B.Z,B.v,B.y),B.aw))},
 AW(a,b,c,d){var s=null
@@ -81312,7 +81312,7 @@ $1(a){return this.a},
 $S:13}
 A.Ly.prototype={
 N(a){var s=null,r=t.p,q=A.b([A.aS("Projects",s,s,s,A.aZ(B.W,28,s,B.H),s,s),B.an,A.aS("Here are some of the projects I've worked on:",s,s,s,A.aZ(s,16,s,s),s,s),B.cV],r)
-B.b.F(q,new A.X(B.JW,new A.a96(),t.YQ))
+B.b.F(q,new A.X(B.Kb,new A.a96(),t.YQ))
 q.push(A.jf(new A.bK(B.aw,A.cK(A.b([A.aS("Management Systems",s,s,s,A.aZ(B.W,20,s,B.H),s,s),B.b4,this.JJ("Logistics Management System","Developed during my time at Homeworld Constructions to manage inventory, shipments, and warehouse operations."),B.ek,this.JJ("ERP System Integration","Worked with ERP systems to streamline business processes and generate operational reports.")],r),B.Z,B.v,B.y),s),4,s))
 return A.Az(B.dc,A.B5(A.cK(q,B.Z,B.v,B.y),B.aw))},
 JJ(a,b){var s=null
@@ -81322,7 +81322,7 @@ $1(a){return A.cK(A.b([new A.Lx(a,null),B.an],t.p),B.a_,B.v,B.y)},
 $S:497}
 A.Nb.prototype={
 N(a){var s,r,q,p,o,n=null,m=A.aS("Skills & Technologies",n,n,n,A.aZ(B.W,28,n,B.H),n,n),l=A.aS("Programming Languages & Frameworks",n,n,n,A.aZ(n,20,n,B.H),n,n),k=t.zI
-k=A.W(new A.X(B.K7,new A.acS(),k),k.h("an.E"))
+k=A.W(new A.X(B.K6,new A.acS(),k),k.h("an.E"))
 k=A.Oq(k,10,10)
 s=A.aS("Tools & Platforms",n,n,n,A.aZ(n,20,n,B.H),n,n)
 r=t.sI
@@ -81605,7 +81605,7 @@ TS(a,b,c,d,e,f,g,h,i){var s
 $.Y()
 s=A.aU()
 s.r=A.aY(b).gp()
-if(a!==0)s.a=B.K9[a]
+if(a!==0)s.a=B.K8[a]
 if(e!=null)s.so3(this.z[e])
 if(d===1){s.b=B.bl
 if(f!=null&&f!==0)s.d=B.Le[f]
@@ -87914,7 +87914,7 @@ B.Lb=A.b(s(["Coordinated daily logistics and supply chain operations","Maintaine
 B.Hs=new A.ks("Homeworld Constructions","Logistics Generalist","June 2023 - November 2023","Bacolod City, Philippines",B.Lb,"assets/images/homeworld_logo.png")
 B.KB=A.b(s(["IT Support","Quality Assurance","Graphic Design"]),t.s)
 B.Hu=new A.ks("GC&C Group of Companies, Inc","UI Designer/Web Developer (Intern)","March 2023 - June 2023","Bacolod City, Philippines",B.KB,"assets/images/gc&c_logo.png")
-B.K0=A.b(s([B.Ht,B.Hs,B.Hu]),A.Z("q<ks>"))
+B.K_=A.b(s([B.Ht,B.Hs,B.Hu]),A.Z("q<ks>"))
 B.Hr=new A.Je(null)
 B.fH=new A.kt(!1,!1,!1,!1)
 B.fI=new A.kt(!1,!1,!1,!0)
@@ -88146,22 +88146,16 @@ B.Jo=A.b(s([255,216,255]),t.Z)
 B.IE=new A.me(2,"jpeg")
 B.IT=new A.jq(B.IE,!1,3,"jpeg")
 B.IC=new A.kC(B.Jo,B.IT,3,"jpeg")
-B.K5=A.b(s([82,73,70,70,null,null,null,null,87,69,66,80]),t.Z)
-B.Iy=new A.kC(B.K5,B.nQ,4,"webp")
-B.JZ=A.b(s([66,77]),t.Z)
+B.K4=A.b(s([82,73,70,70,null,null,null,null,87,69,66,80]),t.Z)
+B.Iy=new A.kC(B.K4,B.nQ,4,"webp")
+B.JY=A.b(s([66,77]),t.Z)
 B.IF=new A.me(4,"bmp")
 B.IR=new A.jq(B.IF,!1,6,"bmp")
-B.Ix=new A.kC(B.JZ,B.IR,5,"bmp")
+B.Ix=new A.kC(B.JY,B.IR,5,"bmp")
 B.JM=A.b(s([B.IB,B.IA,B.Iz,B.IC,B.Iy,B.Ix]),A.Z("q<kC>"))
 B.lE=new A.ED(0,"named")
 B.A8=new A.ED(1,"anonymous")
 B.JV=A.b(s([B.lE,B.A8]),A.Z("q<ED>"))
-B.nZ=A.b(s(["Flutter","Firebase","Dart"]),t.s)
-B.Pq=new A.l_("Lupark - Smart Parking","A mobile application for smart parking solutions that helps users find and reserve parking spots efficiently.",B.nZ,"Mobile Developer",!0)
-B.Pp=new A.l_("Luvpark for Client","Client-specific version of the Lupark application with customized features and branding.",B.nZ,"Mobile Developer",!0)
-B.Li=A.b(s(["HTML","CSS","JavaScript","C#"]),t.s)
-B.Po=new A.l_("GC&C Internship Projects","Various projects completed during internship including UI design, web development, and IT support tasks.",B.Li,"UI Designer/Web Developer",!1)
-B.JW=A.b(s([B.Pq,B.Pp,B.Po]),A.Z("q<l_>"))
 B.nY=A.b(s([0,4,12,1,5,13,3,7,15]),t.t)
 B.a_2=new A.fS(0,1)
 B.a_7=new A.fS(0.5,1)
@@ -88174,7 +88168,7 @@ B.a_b=new A.fS(0.8875,0.25)
 B.a_9=new A.fS(0.925,0.5)
 B.a_3=new A.fS(0.9625,0.75)
 B.a_4=new A.fS(1,1)
-B.K6=A.b(s([B.a_2,B.a_7,B.a_a,B.a_c,B.a_8,B.a_6,B.a_5,B.a_b,B.a_9,B.a_3,B.a_4]),A.Z("q<fS>"))
+B.K5=A.b(s([B.a_2,B.a_7,B.a_a,B.a_c,B.a_8,B.a_6,B.a_5,B.a_b,B.a_9,B.a_3,B.a_4]),A.Z("q<fS>"))
 B.S3=new A.en("Flutter","assets/icons/flutter.svg",0.85)
 B.S9=new A.en("Dart","assets/icons/dart.svg",0.8)
 B.S8=new A.en("Java","assets/icons/java.svg",0.75)
@@ -88187,14 +88181,14 @@ B.Sc=new A.en("Angular JS","assets/icons/angular.svg",0.65)
 B.S2=new A.en("Bootstrap","assets/icons/bootstrap.svg",0.85)
 B.S1=new A.en("jQuery","assets/icons/jquery.svg",0.75)
 B.S4=new A.en("Oracle PL/SQL","assets/icons/oracle.svg",0.7)
-B.K7=A.b(s([B.S3,B.S9,B.S8,B.Sa,B.Sb,B.S6,B.S7,B.S5,B.Sc,B.S2,B.S1,B.S4]),A.Z("q<en>"))
+B.K6=A.b(s([B.S3,B.S9,B.S8,B.Sa,B.Sb,B.S6,B.S7,B.S5,B.Sc,B.S2,B.S1,B.S4]),A.Z("q<en>"))
 B.eX=new A.lb(0,"left")
 B.l1=new A.lb(1,"right")
 B.l2=new A.lb(2,"center")
 B.eY=new A.lb(3,"justify")
 B.aK=new A.lb(4,"start")
 B.l3=new A.lb(5,"end")
-B.K8=A.b(s([B.eX,B.l1,B.l2,B.eY,B.aK,B.l3]),A.Z("q<lb>"))
+B.K7=A.b(s([B.eX,B.l1,B.l2,B.eY,B.aK,B.l3]),A.Z("q<lb>"))
 B.Aw=new A.cf(0,"clear")
 B.Ax=new A.cf(1,"src")
 B.AM=new A.cf(2,"dst")
@@ -88218,8 +88212,14 @@ B.AX=new A.cf(25,"hue")
 B.AZ=new A.cf(26,"saturation")
 B.B0=new A.cf(27,"color")
 B.B2=new A.cf(28,"luminosity")
-B.K9=A.b(s([B.Aw,B.Ax,B.AM,B.br,B.B4,B.B5,B.lX,B.B6,B.B7,B.lY,B.Ay,B.Az,B.lV,B.lW,B.AA,B.AC,B.AE,B.AG,B.AI,B.AK,B.AN,B.AP,B.AR,B.AT,B.AV,B.AX,B.AZ,B.B0,B.B2]),A.Z("q<cf>"))
-B.Kb=A.b(s([B.is,B.it]),A.Z("q<wE>"))
+B.K8=A.b(s([B.Aw,B.Ax,B.AM,B.br,B.B4,B.B5,B.lX,B.B6,B.B7,B.lY,B.Ay,B.Az,B.lV,B.lW,B.AA,B.AC,B.AE,B.AG,B.AI,B.AK,B.AN,B.AP,B.AR,B.AT,B.AV,B.AX,B.AZ,B.B0,B.B2]),A.Z("q<cf>"))
+B.Ka=A.b(s([B.is,B.it]),A.Z("q<wE>"))
+B.nZ=A.b(s(["Flutter","Firebase","Dart"]),t.s)
+B.Pp=new A.l_("luvpark - Smart Parking","A mobile application for smart parking solutions that helps users find and reserve parking spots efficiently.",B.nZ,"Mobile Developer",!0)
+B.Pq=new A.l_("Luvpark for Client","Client-specific version of the luvpark application with customized features and branding.",B.nZ,"Mobile Developer",!0)
+B.Li=A.b(s(["HTML","CSS","JavaScript","C#"]),t.s)
+B.Po=new A.l_("GC&C Internship Projects","Various projects completed during internship including UI design, web development, and IT support tasks.",B.Li,"UI Designer/Web Developer",!1)
+B.Kb=A.b(s([B.Pp,B.Pq,B.Po]),A.Z("q<l_>"))
 B.b6=new A.jV(0,"label")
 B.aM=new A.jV(1,"avatar")
 B.bO=new A.jV(2,"deleteIcon")
@@ -89069,32 +89069,32 @@ B.KA=A.b(s([B.tG,null,null,B.cM]),t.L)
 B.Jl=A.b(s([B.tH,null,null,B.tV]),t.L)
 B.Lc=A.b(s([B.tI,null,null,B.k5]),t.L)
 B.L7=A.b(s([B.tJ,null,null,B.eH]),t.L)
-B.K_=A.b(s([B.tK,null,null,B.cN]),t.L)
+B.JZ=A.b(s([B.tK,null,null,B.cN]),t.L)
 B.Lg=A.b(s([B.tL,null,null,B.eI]),t.L)
 B.L6=A.b(s([B.tM,null,null,B.cO]),t.L)
-B.JY=A.b(s([B.tN,null,null,B.k6]),t.L)
+B.JX=A.b(s([B.tN,null,null,B.k6]),t.L)
 B.Jp=A.b(s([B.tO,null,null,B.cP]),t.L)
-B.Ka=A.b(s([B.tP,null,null,B.eJ]),t.L)
+B.K9=A.b(s([B.tP,null,null,B.eJ]),t.L)
 B.L1=A.b(s([B.tQ,null,null,B.cQ]),t.L)
 B.L2=A.b(s([B.tR,null,null,B.eK]),t.L)
-B.K1=A.b(s([B.eF,B.eF,B.hd,null]),t.L)
+B.K0=A.b(s([B.eF,B.eF,B.hd,null]),t.L)
 B.Ld=A.b(s([B.h9,null,B.h9,null]),t.L)
 B.Kg=A.b(s([B.bJ,null,null,B.cN]),t.L)
 B.Kh=A.b(s([B.bu,null,null,B.cO]),t.L)
 B.Ki=A.b(s([B.bv,null,null,B.cP]),t.L)
 B.Lf=A.b(s([B.bK,null,null,B.cQ]),t.L)
 B.L4=A.b(s([B.jZ,null,null,B.k6]),t.L)
-B.K2=A.b(s([B.eE,B.eE,B.hc,null]),t.L)
+B.K1=A.b(s([B.eE,B.eE,B.hc,null]),t.L)
 B.KF=A.b(s([B.aE,null,null,B.cM]),t.L)
 B.Kj=A.b(s([B.cJ,null,null,B.eH]),t.L)
-B.JX=A.b(s([B.h8,null,null,B.k4]),t.L)
+B.JW=A.b(s([B.h8,null,null,B.k4]),t.L)
 B.Kk=A.b(s([B.cK,null,null,B.eJ]),t.L)
 B.L5=A.b(s([B.k_,null,null,B.k5]),t.L)
-B.K3=A.b(s([B.eG,B.eG,B.he,null]),t.L)
+B.K2=A.b(s([B.eG,B.eG,B.he,null]),t.L)
 B.Kl=A.b(s([B.eC,null,null,B.eI]),t.L)
 B.KJ=A.b(s([B.eD,null,null,B.eK]),t.L)
-B.K4=A.b(s([B.cq,B.cq,B.cL,null]),t.L)
-B.N6=new A.cL(["*",B.JT,"+",B.L0,"-",B.Ke,".",B.KA,"/",B.Jl,"0",B.Lc,"1",B.L7,"2",B.K_,"3",B.Lg,"4",B.L6,"5",B.JY,"6",B.Jp,"7",B.Ka,"8",B.L1,"9",B.L2,"Alt",B.K1,"AltGraph",B.Ld,"ArrowDown",B.Kg,"ArrowLeft",B.Kh,"ArrowRight",B.Ki,"ArrowUp",B.Lf,"Clear",B.L4,"Control",B.K2,"Delete",B.KF,"End",B.Kj,"Enter",B.JX,"Home",B.Kk,"Insert",B.L5,"Meta",B.K3,"PageDown",B.Kl,"PageUp",B.KJ,"Shift",B.K4],A.Z("cL<h,H<e?>>"))
+B.K3=A.b(s([B.cq,B.cq,B.cL,null]),t.L)
+B.N6=new A.cL(["*",B.JT,"+",B.L0,"-",B.Ke,".",B.KA,"/",B.Jl,"0",B.Lc,"1",B.L7,"2",B.JZ,"3",B.Lg,"4",B.L6,"5",B.JX,"6",B.Jp,"7",B.K9,"8",B.L1,"9",B.L2,"Alt",B.K0,"AltGraph",B.Ld,"ArrowDown",B.Kg,"ArrowLeft",B.Kh,"ArrowRight",B.Ki,"ArrowUp",B.Lf,"Clear",B.L4,"Control",B.K1,"Delete",B.KF,"End",B.Kj,"Enter",B.JW,"Home",B.Kk,"Insert",B.L5,"Meta",B.K2,"PageDown",B.Kl,"PageUp",B.KJ,"Shift",B.K3],A.Z("cL<h,H<e?>>"))
 B.N7=new A.cL([B.dj,"Thin",B.fS,"ExtraLight",B.fT,"Light",B.n,"Regular",B.a0,"Medium",B.fU,"SemiBold",B.H,"Bold",B.fV,"ExtraBold",B.eu,"Black"],A.Z("cL<h5,h>"))
 B.NH={multiply:0,screen:1,overlay:2,darken:3,lighten:4,"color-dodge":5,"color-burn":6,"hard-light":7,"soft-light":8,difference:9,exclusion:10,hue:11,saturation:12,color:13,luminosity:14}
 B.AW=new A.dZ(24,"multiply")
