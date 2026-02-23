@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rizzamae_portfolio/main.dart';
 import 'package:rizzamae_portfolio/models/project_model.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
 import 'package:rizzamae_portfolio/widgets/project_card.dart';
+
+import '../theme/portfolio_theme_scope.dart';
+import '../widgets/portfolio_drawer.dart';
+import '../widgets/portfolio_page_shell.dart';
 
 class ProjectsScreen extends StatelessWidget {
   const ProjectsScreen({super.key});
@@ -36,9 +41,17 @@ class ProjectsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final route = ModalRoute.of(context)?.settings.name;
+    final themeScope = PortfolioThemeScope.of(context);
+
     return Scaffold(
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
+      appBar: CustomAppBar(currentRoute: route),
+      endDrawer: PortfolioDrawer(
+        currentRoute: route,
+        themeMode: themeScope.themeMode,
+        onThemeChanged: themeScope.setThemeMode,
+      ),
+      body: PortfolioPageShell(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

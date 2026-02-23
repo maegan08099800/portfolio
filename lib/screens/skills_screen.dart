@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:rizzamae_portfolio/models/skill_model.dart';
 import 'package:rizzamae_portfolio/theme/app_theme.dart';
+import 'package:rizzamae_portfolio/theme/animated_tech_background.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
-import 'package:rizzamae_portfolio/widgets/skill_chip.dart';
+import 'package:rizzamae_portfolio/widgets/skill_chip.dart' hide GlassCard;
+
+import '../widgets/portfolio_page_shell.dart';
 
 class SkillsScreen extends StatelessWidget {
   const SkillsScreen({super.key});
@@ -60,86 +64,84 @@ class SkillsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(currentRoute: route),
-      body: TechBackground(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(18),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1080),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _PageHeader(
-                    title: 'Skills & Technologies',
-                    subtitle:
-                        'My toolkit for building apps, interfaces, and systems.',
-                    badge: 'STACK',
+      body: PortfolioPageShell(
+        padding: const EdgeInsets.all(18),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1080),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _PageHeader(
+                  title: 'Skills & Technologies',
+                  subtitle:
+                      'My toolkit for building apps, interfaces, and systems.',
+                  badge: 'STACK',
+                ),
+                const SizedBox(height: 14),
+                const _SectionTitle(
+                  title: 'Programming Languages & Frameworks',
+                  hint: 'Core development skills',
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children:
+                      technicalSkills.map((s) => SkillChip(skill: s)).toList(),
+                ),
+                const SizedBox(height: 18),
+                const _SectionTitle(
+                    title: 'Tools & Platforms',
+                    hint: 'Daily drivers & services'),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: tools
+                      .map((t) => Chip(
+                            avatar: Icon(Icons.terminal_rounded,
+                                size: 16, color: cs.primary),
+                            label: Text(t,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600)),
+                          ))
+                      .toList(),
+                ),
+                const SizedBox(height: 18),
+                const _SectionTitle(
+                    title: 'Other Skills', hint: 'Support strengths'),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: otherSkills
+                      .map((s) => Chip(
+                            avatar: Icon(Icons.auto_awesome_rounded,
+                                size: 16, color: cs.secondary),
+                            label: Text(s,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600)),
+                          ))
+                      .toList(),
+                ),
+                const SizedBox(height: 18),
+                GlassCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      _SectionTitle(
+                          title: 'Languages Spoken', hint: 'Communication'),
+                      SizedBox(height: 10),
+                      _LangRow(label: 'English', level: 'Fluent'),
+                      SizedBox(height: 8),
+                      _LangRow(label: 'Tagalog', level: 'Fluent'),
+                      SizedBox(height: 8),
+                      _LangRow(label: 'Hiligaynon', level: 'Native'),
+                    ],
                   ),
-                  const SizedBox(height: 14),
-                  _SectionTitle(
-                      title: 'Programming Languages & Frameworks',
-                      hint: 'Core development skills'),
-                  const SizedBox(height: 12),
-                  Wrap(
-                    spacing: 12,
-                    runSpacing: 12,
-                    children: technicalSkills
-                        .map((s) => SkillChip(skill: s))
-                        .toList(),
-                  ),
-                  const SizedBox(height: 18),
-                  _SectionTitle(
-                      title: 'Tools & Platforms',
-                      hint: 'Daily drivers & services'),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: tools
-                        .map((t) => Chip(
-                              avatar: Icon(Icons.terminal_rounded,
-                                  size: 16, color: cs.primary),
-                              label: Text(t,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600)),
-                            ))
-                        .toList(),
-                  ),
-                  const SizedBox(height: 18),
-                  _SectionTitle(
-                      title: 'Other Skills', hint: 'Support strengths'),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: otherSkills
-                        .map((s) => Chip(
-                              avatar: Icon(Icons.auto_awesome_rounded,
-                                  size: 16, color: cs.secondary),
-                              label: Text(s,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600)),
-                            ))
-                        .toList(),
-                  ),
-                  const SizedBox(height: 18),
-                  GlassCard(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _SectionTitle(
-                            title: 'Languages Spoken', hint: 'Communication'),
-                        const SizedBox(height: 10),
-                        _LangRow(label: 'English', level: 'Fluent'),
-                        const SizedBox(height: 8),
-                        _LangRow(label: 'Tagalog', level: 'Fluent'),
-                        const SizedBox(height: 8),
-                        _LangRow(label: 'Hiligaynon', level: 'Native'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -149,8 +151,12 @@ class SkillsScreen extends StatelessWidget {
 }
 
 class _PageHeader extends StatelessWidget {
-  const _PageHeader(
-      {required this.title, required this.subtitle, required this.badge});
+  const _PageHeader({
+    required this.title,
+    required this.subtitle,
+    required this.badge,
+  });
+
   final String title;
   final String subtitle;
   final String badge;
@@ -209,6 +215,7 @@ class _PageHeader extends StatelessWidget {
 
 class _SectionTitle extends StatelessWidget {
   const _SectionTitle({required this.title, required this.hint});
+
   final String title;
   final String hint;
 
@@ -238,6 +245,7 @@ class _SectionTitle extends StatelessWidget {
 
 class _LangRow extends StatelessWidget {
   const _LangRow({required this.label, required this.level});
+
   final String label;
   final String level;
 

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rizzamae_portfolio/main.dart';
 import 'package:rizzamae_portfolio/models/experience_model.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
 import 'package:rizzamae_portfolio/widgets/experience_card.dart';
+
+import '../theme/portfolio_theme_scope.dart';
+import '../widgets/portfolio_drawer.dart';
+import '../widgets/portfolio_page_shell.dart';
 
 class ExperienceScreen extends StatelessWidget {
   const ExperienceScreen({super.key});
@@ -53,10 +58,17 @@ class ExperienceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final route = ModalRoute.of(context)?.settings.name;
+    final themeScope = PortfolioThemeScope.of(context);
+
     return Scaffold(
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+      appBar: CustomAppBar(currentRoute: route),
+      endDrawer: PortfolioDrawer(
+        currentRoute: route,
+        themeMode: themeScope.themeMode,
+        onThemeChanged: themeScope.setThemeMode,
+      ),
+      body: PortfolioPageShell(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

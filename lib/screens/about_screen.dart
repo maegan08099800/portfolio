@@ -3,15 +3,26 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
 
+import '../theme/portfolio_theme_scope.dart' show PortfolioThemeScope;
+import '../widgets/portfolio_drawer.dart';
+import '../widgets/portfolio_page_shell.dart';
+
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final route = ModalRoute.of(context)?.settings.name;
+    final themeScope = PortfolioThemeScope.of(context);
+
     return Scaffold(
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+      appBar: CustomAppBar(currentRoute: route),
+      endDrawer: PortfolioDrawer(
+        currentRoute: route,
+        themeMode: themeScope.themeMode,
+        onThemeChanged: themeScope.setThemeMode,
+      ),
+      body: PortfolioPageShell(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

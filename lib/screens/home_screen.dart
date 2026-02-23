@@ -1,13 +1,18 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:rizzamae_portfolio/screens/about_screen.dart';
 import 'package:rizzamae_portfolio/screens/contact_screen.dart';
 import 'package:rizzamae_portfolio/screens/experience_screen.dart';
 import 'package:rizzamae_portfolio/screens/projects_screen.dart';
 import 'package:rizzamae_portfolio/screens/skills_screen.dart';
+
 import 'package:rizzamae_portfolio/theme/app_theme.dart';
+import 'package:rizzamae_portfolio/theme/animated_tech_background.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
+
+import '../widgets/skill_chip.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +23,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(currentRoute: route),
-      body: TechBackground(
+      body: AnimatedTechBackground(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
           child: Center(
@@ -26,11 +31,11 @@ class HomeScreen extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 1080),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   _Hero(),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   _StatsRow(),
-                  const SizedBox(height: 18),
+                  SizedBox(height: 18),
                   _NavGrid(),
                 ],
               ),
@@ -43,6 +48,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _Hero extends StatelessWidget {
+  const _Hero();
+
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
@@ -53,7 +60,6 @@ class _Hero extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Avatar
           Container(
             width: isMobile ? 84 : 120,
             height: isMobile ? 84 : 120,
@@ -74,8 +80,6 @@ class _Hero extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 18),
-
-          // Text
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,8 +184,12 @@ class _Hero extends StatelessWidget {
 }
 
 class _PrimaryCTA extends StatelessWidget {
-  const _PrimaryCTA(
-      {required this.label, required this.icon, required this.onTap});
+  const _PrimaryCTA({
+    required this.label,
+    required this.icon,
+    required this.onTap,
+  });
+
   final String label;
   final IconData icon;
   final VoidCallback onTap;
@@ -197,8 +205,12 @@ class _PrimaryCTA extends StatelessWidget {
 }
 
 class _GhostCTA extends StatelessWidget {
-  const _GhostCTA(
-      {required this.label, required this.icon, required this.onTap});
+  const _GhostCTA({
+    required this.label,
+    required this.icon,
+    required this.onTap,
+  });
+
   final String label;
   final IconData icon;
   final VoidCallback onTap;
@@ -222,11 +234,13 @@ class _GhostCTA extends StatelessWidget {
 }
 
 class _StatsRow extends StatelessWidget {
+  const _StatsRow();
+
   @override
   Widget build(BuildContext context) {
     final isMobile = MediaQuery.of(context).size.width < 760;
 
-    final items = [
+    const items = [
       _StatItem(
           title: "Focus", value: "Flutter", subtitle: "Mobile-first apps"),
       _StatItem(title: "Stack", value: "Full UI", subtitle: "Design → Code"),
@@ -259,8 +273,12 @@ class _StatsRow extends StatelessWidget {
 }
 
 class _StatItem extends StatelessWidget {
-  const _StatItem(
-      {required this.title, required this.value, required this.subtitle});
+  const _StatItem({
+    required this.title,
+    required this.value,
+    required this.subtitle,
+  });
+
   final String title;
   final String value;
   final String subtitle;
@@ -328,6 +346,8 @@ class _StatItem extends StatelessWidget {
 }
 
 class _NavGrid extends StatelessWidget {
+  const _NavGrid();
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
