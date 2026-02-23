@@ -2,60 +2,76 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({
+    super.key,
+    this.onMenuPressed,
+    this.currentRoute,
+  });
+
+  final VoidCallback? onMenuPressed;
+  final String? currentRoute;
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final isMobile = MediaQuery.of(context).size.width < 760;
+
     return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 1,
       title: Row(
         children: [
           Text(
             'Rizza Mae',
             style: GoogleFonts.poppins(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Colors.purple,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.2,
+              color: cs.onBackground,
             ),
           ),
           Text(
             ' Gancioso',
             style: GoogleFonts.poppins(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.2,
+              color: cs.primary,
             ),
           ),
+          const SizedBox(width: 10),
+          _RolePill(text: 'Web • Mobile • Flutter', color: cs.secondary),
         ],
       ),
       actions: [
-        // Mobile view - hamburger menu
-        if (MediaQuery.of(context).size.width < 600)
+        if (isMobile)
           IconButton(
-            icon: const Icon(Icons.menu, color: Colors.purple),
-            onPressed: () {
-              Scaffold.of(context).openEndDrawer();
-            },
+            icon: Icon(Icons.menu_rounded, color: cs.onBackground),
+            onPressed: onMenuPressed ??
+                () {
+                  Scaffold.of(context).openEndDrawer();
+                },
           )
         else
-          // Desktop view - navigation links
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.only(right: 10),
             child: Row(
               children: [
-                _buildNavButton(context, 'Home', Icons.home, '/'),
-                const SizedBox(width: 10),
-                _buildNavButton(context, 'About', Icons.person, '/about'),
-                const SizedBox(width: 10),
-                _buildNavButton(
-                    context, 'Experience', Icons.work, '/experience'),
-                const SizedBox(width: 10),
-                _buildNavButton(context, 'Skills', Icons.code, '/skills'),
-                const SizedBox(width: 10),
-                _buildNavButton(context, 'Projects', Icons.apps, '/projects'),
-                const SizedBox(width: 10),
-                _buildNavButton(context, 'Contact', Icons.email, '/contact'),
+                _NavBtn(text: 'Home', route: '/', currentRoute: currentRoute),
+                _NavBtn(
+                    text: 'About', route: '/about', currentRoute: currentRoute),
+                _NavBtn(
+                    text: 'Experience',
+                    route: '/experience',
+                    currentRoute: currentRoute),
+                _NavBtn(
+                    text: 'Skills',
+                    route: '/skills',
+                    currentRoute: currentRoute),
+                _NavBtn(
+                    text: 'Projects',
+                    route: '/projects',
+                    currentRoute: currentRoute),
+                _NavBtn(
+                    text: 'Contact',
+                    route: '/contact',
+                    currentRoute: currentRoute),
               ],
             ),
           ),
@@ -63,29 +79,68 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _buildNavButton(
-      BuildContext context, String text, IconData icon, String route) {
-    final isCurrent = ModalRoute.of(context)?.settings.name == route;
-    return TextButton.icon(
-      style: TextButton.styleFrom(
-        foregroundColor: isCurrent ? Colors.purple : Colors.grey.shade700,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _RolePill extends StatelessWidget {
+  const _RolePill({required this.text, required this.color});
+  final String text;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: cs.outline.withOpacity(0.45)),
+        color: cs.surface.withOpacity(0.45),
       ),
-      onPressed: () {
-        if (!isCurrent) {
-          Navigator.pushNamed(context, route);
-        }
-      },
-      icon: Icon(icon, size: 18),
-      label: Text(
+      child: Text(
         text,
-        style: GoogleFonts.poppins(fontSize: 14),
+        style: GoogleFonts.robotoMono(
+          fontSize: 12,
+          color: color,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
+}
+
+class _NavBtn extends StatelessWidget {
+  const _NavBtn({
+    required this.text,
+    required this.route,
+    required this.currentRoute,
+  });
+
+  final String text;
+  final String route;
+  final String? currentRoute;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final active = currentRoute == route;
+
+    return TextButton(
+      onPressed: () {
+        if (!active) Navigator.pushNamed(context, route);
+      },
+      style: TextButton.styleFrom(
+        foregroundColor: active ? cs.primary : cs.onBackground.withOpacity(0.8),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      ),
+      child: Text(
+        text,
+        style: GoogleFonts.poppins(
+          fontSize: 13,
+          fontWeight: active ? FontWeight.w700 : FontWeight.w600,
+        ),
+      ),
+    );
+  }
 }

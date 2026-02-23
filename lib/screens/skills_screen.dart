@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rizzamae_portfolio/models/skill_model.dart';
+import 'package:rizzamae_portfolio/theme/app_theme.dart';
 import 'package:rizzamae_portfolio/widgets/custom_app_bar.dart';
 import 'package:rizzamae_portfolio/widgets/skill_chip.dart';
 
@@ -55,143 +55,212 @@ class SkillsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final route = ModalRoute.of(context)?.settings.name;
+    final cs = Theme.of(context).colorScheme;
+
     return Scaffold(
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Skills & Technologies',
-              style: GoogleFonts.poppins(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.purple,
-              ),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              'Programming Languages & Frameworks',
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: technicalSkills
-                  .map((skill) => SkillChip(skill: skill))
-                  .toList(),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              'Tools & Platforms',
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: tools
-                  .map((tool) => Chip(
-                        label: Text(tool),
-                        backgroundColor: Colors.blue.shade100,
-                      ))
-                  .toList(),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              'Other Skills',
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: otherSkills
-                  .map((skill) => Chip(
-                        label: Text(skill),
-                        backgroundColor: Colors.green.shade100,
-                      ))
-                  .toList(),
-            ),
-            const SizedBox(height: 30),
-            Card(
-              elevation: 4,
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Languages Spoken',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
+      appBar: CustomAppBar(currentRoute: route),
+      body: TechBackground(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(18),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1080),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _PageHeader(
+                    title: 'Skills & Technologies',
+                    subtitle:
+                        'My toolkit for building apps, interfaces, and systems.',
+                    badge: 'STACK',
+                  ),
+                  const SizedBox(height: 14),
+                  _SectionTitle(
+                      title: 'Programming Languages & Frameworks',
+                      hint: 'Core development skills'),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 12,
+                    children: technicalSkills
+                        .map((s) => SkillChip(skill: s))
+                        .toList(),
+                  ),
+                  const SizedBox(height: 18),
+                  _SectionTitle(
+                      title: 'Tools & Platforms',
+                      hint: 'Daily drivers & services'),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: tools
+                        .map((t) => Chip(
+                              avatar: Icon(Icons.terminal_rounded,
+                                  size: 16, color: cs.primary),
+                              label: Text(t,
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600)),
+                            ))
+                        .toList(),
+                  ),
+                  const SizedBox(height: 18),
+                  _SectionTitle(
+                      title: 'Other Skills', hint: 'Support strengths'),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: otherSkills
+                        .map((s) => Chip(
+                              avatar: Icon(Icons.auto_awesome_rounded,
+                                  size: 16, color: cs.secondary),
+                              label: Text(s,
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600)),
+                            ))
+                        .toList(),
+                  ),
+                  const SizedBox(height: 18),
+                  GlassCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SvgPicture.asset(
-                          'assets/icons/english.svg',
-                          width: 30,
-                          height: 30,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'English - Fluent',
-                          style: GoogleFonts.poppins(fontSize: 16),
-                        ),
+                        _SectionTitle(
+                            title: 'Languages Spoken', hint: 'Communication'),
+                        const SizedBox(height: 10),
+                        _LangRow(label: 'English', level: 'Fluent'),
+                        const SizedBox(height: 8),
+                        _LangRow(label: 'Tagalog', level: 'Fluent'),
+                        const SizedBox(height: 8),
+                        _LangRow(label: 'Hiligaynon', level: 'Native'),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/icons/tagalog.svg',
-                          width: 30,
-                          height: 30,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Tagalog - Fluent',
-                          style: GoogleFonts.poppins(fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/icons/hiligaynon.svg',
-                          width: 30,
-                          height: 30,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Hiligaynon - Native',
-                          style: GoogleFonts.poppins(fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class _PageHeader extends StatelessWidget {
+  const _PageHeader(
+      {required this.title, required this.subtitle, required this.badge});
+  final String title;
+  final String subtitle;
+  final String badge;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return GlassCard(
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(999),
+              gradient: LinearGradient(
+                colors: [
+                  cs.primary.withOpacity(0.85),
+                  cs.secondary.withOpacity(0.85)
+                ],
+              ),
+            ),
+            child: Text(
+              badge,
+              style: GoogleFonts.robotoMono(
+                fontSize: 12,
+                color: Colors.black,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.1,
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title,
+                    style: GoogleFonts.poppins(
+                        fontSize: 20, fontWeight: FontWeight.w800)),
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13,
+                    color: cs.onBackground.withOpacity(0.75),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SectionTitle extends StatelessWidget {
+  const _SectionTitle({required this.title, required this.hint});
+  final String title;
+  final String hint;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            title,
+            style:
+                GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w800),
+          ),
+        ),
+        Text(
+          hint,
+          style: GoogleFonts.robotoMono(
+            fontSize: 11,
+            color: cs.onBackground.withOpacity(0.6),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _LangRow extends StatelessWidget {
+  const _LangRow({required this.label, required this.level});
+  final String label;
+  final String level;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Row(
+      children: [
+        Icon(Icons.language_rounded, size: 18, color: cs.primary),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Text(label,
+              style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+        ),
+        Text(
+          level,
+          style: GoogleFonts.robotoMono(
+            fontSize: 12,
+            color: cs.onBackground.withOpacity(0.75),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }

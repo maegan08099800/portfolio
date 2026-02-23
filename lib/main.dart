@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rizzamae_portfolio/theme/app_theme.dart';
 import 'package:rizzamae_portfolio/screens/home_screen.dart';
 
 void main() {
@@ -11,12 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rizza Mae Gancioso',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: AppTheme.dark(),
       home: const HomeScreen(),
     );
   }
